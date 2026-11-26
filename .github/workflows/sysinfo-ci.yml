@@ -23,7 +23,7 @@ jobs:
     sysinfo_run:
         runs-on: ubuntu-latest
         needs:
-            - sysinfo_lint
+            - sysinfo_build
         steps:
             - uses: actions/checkout@v7
             - name: run test for sysinfo
