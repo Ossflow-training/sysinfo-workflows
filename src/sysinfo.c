@@ -17,7 +17,7 @@ void get_cpu_usage() {
 
     fp = fopen("/proc/stat", "r");
     fgets(buffer, sizeof(buffer) - 1, fp);
-    sscanf(buffer, "cpu %llu %llu %llu %llu", &user1, &nice1, &system1, &idle1)
+    sscanf(buffer, "cpu %llu %llu %llu %llu", &user1, &nice1, &system1, &idle1);
     fclose(fp);
 
     sleep(1); // Attendre 1 seconde
