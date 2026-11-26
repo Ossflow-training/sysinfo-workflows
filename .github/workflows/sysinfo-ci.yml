@@ -7,4 +7,6 @@ jobs:
         steps:
             - uses: actions/checkout@v7
             - name: Compilation
-              run: make build
+              run: |
+                mkdir bin
+                make build
