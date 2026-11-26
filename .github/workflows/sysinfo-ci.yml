@@ -19,7 +19,7 @@ jobs:
               run: |
                 mkdir bin
                 make build
-            - uses: actions/upload-artifacts@v7
+            - uses: actions/upload-artifact@v7
               with:
                 name: sysinfo-${{ github.sha }}
                 path: bin/sysinfo
@@ -30,7 +30,7 @@ jobs:
             - sysinfo_build
         steps:
             - uses: actions/checkout@v7
-            - uses: actions/download-artifacts@v7
+            - uses: actions/download-artifact@v7
               with:
                 name: sysinfo-${{ github.sha }}
                 path: bin
