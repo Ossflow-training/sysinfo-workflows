@@ -2,8 +2,17 @@ name: "CI for sysinfo C project"
 on: push
 
 jobs:
+    sysinfo_lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+            - name: syntax check
+              run: make lint
+
     sysinfo_build:
         runs-on: ubuntu-latest
+        needs:
+            - sysinfo_lint
         steps:
             - uses: actions/checkout@v7
             - name: Compilation
