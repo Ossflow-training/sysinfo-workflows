@@ -1,6 +1,5 @@
 name: "CI for sysinfo C project"
-on: 
-    workflow_dispatch:
+on: push
 
 jobs:
     sysinfo_lint:
@@ -12,8 +11,6 @@ jobs:
 
     sysinfo_build:
         runs-on: ubuntu-latest
-        container:
-            image: gcc:12
         needs:
             - sysinfo_lint
         steps:
@@ -22,4 +19,12 @@ jobs:
               run: |
                 mkdir bin
                 make build
-                
+    
+    sysinfo_run:
+        runs-on: ubuntu-latest
+        needs:
+            - sysinfo_lint
+        steps:
+            - uses: actions/checkout@v7
+            - name: run test for sysinfo
+              run: ./bin/sysinfo
