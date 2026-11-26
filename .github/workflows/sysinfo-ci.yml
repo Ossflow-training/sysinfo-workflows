@@ -12,6 +12,8 @@ jobs:
 
     sysinfo_build:
         runs-on: ubuntu-latest
+        container:
+            image: gcc:12
         needs:
             - sysinfo_lint
         steps:
