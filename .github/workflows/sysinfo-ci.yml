@@ -1,5 +1,6 @@
 name: "CI for sysinfo C project"
-on: push
+on: 
+    workflow_dispatch:
 
 jobs:
     sysinfo_lint:
